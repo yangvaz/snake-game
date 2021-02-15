@@ -2,7 +2,7 @@ let canvas = document.getElementById("snake");
 let context = canvas.getContext("2d");
 let box = 32; // 32 pixels
 
-let snake = [];
+let snake = [1, 1 ,1];
 snake[0] = {
   x: 8 * box,
   y: 8 * box,
@@ -22,8 +22,8 @@ function createBG() { // criando background
 function createSnake() {
   for (i = 0; i < snake.length; i++) {
     context.fillStyle = "green";
-    context.fillRect(snake[i].x, snake[i].y, box, box);
-  }
+    context.fillRect(snake[i].x, snake[i].y, box-1, box-1);
+  } // "box-1" acima faz a separação entre cada pedaço do corpo da cobra
 }
 
 function drawFood() {
@@ -47,10 +47,10 @@ function startGame() {
   if (snake[0].y > 15 * box && direction == "down") snake[0].y = 0;
   if (snake[0].y < 0 && direction == "up") snake[0].y = 16 * box;
 
-  for (i = 1; i < snake.length; i++) {
+  for (i = 1; i < snake.length; i++) { //esse for identifica a colisão consigo mesmo e dá Game Over
     if (snake[0].x == snake[i].x && snake[0].y == snake[i].y) {
       clearInterval(game);
-      alert('Game over :(');
+      alert('Game over :( Recarregue a página (F5) para tentar novamente');
     }
   }
 
