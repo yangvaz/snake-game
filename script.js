@@ -2,7 +2,7 @@ let canvas = document.getElementById("snake");
 let context = canvas.getContext("2d");
 let box = 32; // 32 pixels
 
-let snake = [1, 1 ,1];
+let snake = [1, 1, 1];
 snake[0] = {
   x: 8 * box,
   y: 8 * box,
@@ -22,7 +22,7 @@ function createBG() { // criando background
 function createSnake() {
   for (i = 0; i < snake.length; i++) {
     context.fillStyle = "green";
-    context.fillRect(snake[i].x, snake[i].y, box-1, box-1);
+    context.fillRect(snake[i].x, snake[i].y, box - 1, box - 1);
   } // "box-1" acima faz a separação entre cada pedaço do corpo da cobra
 }
 
